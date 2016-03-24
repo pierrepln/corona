@@ -9,14 +9,17 @@ export default class Posts extends Component {
 
 
   renderPost({ created_at, pic_urls, source, text, user }) {
-    const link = source.match(/href="([^"]*")/g)
+    const regex = source.match(/<(.*?)>(.*?)<(.*?)>/g)
+
+    console.log(source)
+    console.log(regex)
 
     return (
       <div>
         <li>
           {created_at} <br/>
           by {user.name} <br/>
-          <a href={link} /> <br/>
+          <a href={regex} rel="nofollow" >{regex}</a> <br/>
           {text} <br/>
           <ul>
             {pic_urls.map((pic, i) => <li><img src={pic. thumbnail_pic} width="165" height="165" /></li>)}
