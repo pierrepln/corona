@@ -22,7 +22,7 @@ export default class Posts extends Component {
           <a href={regex} rel="nofollow" >{regex}</a> <br/>
           {text} <br/>
           <ul>
-            {pic_urls.map((pic, i) => <li><img src={pic. thumbnail_pic} width="165" height="165" /></li>)}
+            {pic_urls.map((pic, i) => <li><img src={pic.thumbnail_pic} width="165" height="165" /></li>)}
           </ul>
           <hr/>
         </li>
@@ -34,8 +34,7 @@ export default class Posts extends Component {
     const posts = this.props.posts.data.statuses
 
     console.log(posts)
-
-    return <ul> {posts.map(this.renderPost)} </ul>
+    posts ? (return <ul> {posts.map(this.renderPost)} </ul>)
   }
 
 }
